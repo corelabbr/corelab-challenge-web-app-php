@@ -1,80 +1,91 @@
-## Corelab Challenge:
+# Corelab Notas
 
-You are tasked with building a web application that allows users to create and manage their to-do lists. The application should consist of a responsive webpage built in React, and an API built in PHP Laravel to store and manage the to-do lists.
+Este projeto consiste em uma aplicação web que permite aos usuários criar e gerenciar suas listas de tarefas (to-do lists). A aplicação é composta por duas partes principais:
 
-### The repositories
-The [frontend repository](https://github.com/corelabbr/corelab-challenge-web-app-php)
+- **Frontend**: Uma página web responsiva desenvolvida em React, que oferece uma interface interativa e amigável para os usuários criarem, visualizarem e gerenciarem suas listas de tarefas. O frontend é projetado para ser intuitivo e responsivo, garantindo uma boa experiência em diversos dispositivos.
 
-If you feel more comfortable, you can pick another React framework and show us your skills.
+- **Backend**: Uma API desenvolvida em PHP Laravel para armazenar e gerenciar as listas de tarefas dos usuários. O backend fornece endpoints para criar, ler, atualizar e excluir tarefas.
 
-The [backend repository](https://github.com/corelabbr/corelab-api-challenge-php)
+## Funcionalidades
+- **Gerenciamento de tarefas**: Operações completas para criar, ler, atualizar e deletar tarefas.
+- **Gerenciamento de Usuários**: Operações completas para criar, ler, atualizar e deletar usuários.
+- **Autenticação e Autorização**: Mecanismos para registro, login e proteção de rotas.
 
-If you feel more comfortable, you can pick another PHP framework and show us your skills.
+## Tecnologias Utilizadas no Backend
+- [Laravel](https://laravel.com/) Framework PHP para desenvolvimento de aplicações web, utilizado para construir a API e gerenciar a lógica de negócios do backend.
+- [MySQL](https://www.mysql.com/) Sistema de gerenciamento de banco de dados relacional usado para armazenar dados da aplicação.
+- [Docker](https://www.docker.com/) Plataforma para criar, implantar e executar aplicações em containers, garantindo que o ambiente de desenvolvimento e produção sejam consistentes.
+- [Nginx](https://nginx.org/) Servidor web utilizado para servir a aplicação e gerenciar o tráfego HTTP.
+- [PHP 7.4-FPM](https://www.php.net/) Versão do PHP com suporte a FastCGI Process Manager, otimizada para desempenho em ambientes de produção.
 
-### The Layout
-Open the [layout mockup](https://www.figma.com/file/sQrUVHTlyogq3qGdkqGTXN/mockup?node-id=7%3A2&t=ANTOTiqjqGWYuoUr-0) in desktop and mobile version and follow this design as much as possible.
+## Tecnologias Utilizadas no Frontend
+- [Node.js](https://nodejs.org/pt) Ambiente de execução JavaScript no lado do servidor, utilizado para executar scripts JavaScript fora do navegador e gerenciar pacotes e dependências da aplicação através do npm (Node Package Manager).
+- [React](https://react.dev/) Biblioteca JavaScript para construção de interfaces de usuário, utilizada para criar componentes de frontend e gerenciar o estado da aplicação.
+- [Redux](https://redux.js.org/) Biblioteca para gerenciamento de estado global em aplicações JavaScript, usada para armazenar e gerenciar o estado da aplicação em uma store global.
+- [Axios](https://axios-http.com/) Biblioteca para realizar requisições HTTP em JavaScript, usada para comunicação com APIs e gerenciamento de dados entre o frontend e o backend.
+- [TypeScript](https://www.typescriptlang.org/) Superset do JavaScript que adiciona tipagem estática opcional, usado para melhorar a segurança e a robustez do código.
+- [Bootstrap 5](https://getbootstrap.com/) Framework de CSS para design responsivo e estilização rápida, usado para estilizar e criar uma interface de usuário moderna e amigável.
+- [Sass](https://sass-lang.com/) Pré-processador CSS que permite usar variáveis, aninhamento e outras funcionalidades avançadas, utilizado para escrever e manter o CSS da aplicação.
 
-### The application should have the following functionality:
+## Requisitos para rodar a aplicação
+- **Docker**.
+- **Docker Compose**.
+#### Caso não use docker
+#### Frontend
+- **Node**.js: Versão 20.x.
+- **npm**: Versão 10.x.
+#### Backend
+- **PHP**: Versão 7.4.
+- **Composer**: Versão 2.x.
+#### Banco de Dados
+- **MySQL**: Versão 8.x.
 
-1. Users should be able to create, read, update, and delete to-do items using the API.
-2. Users should be able to mark an item as a favorite.
-3. Users should be able to set a color for each to-do item.
-4. The React frontend should display the user's to-do list in a responsive and visually appealing manner, with the ability to filter by favorite items and color.
-5. The favorited items should be displayed at the top of the list.
+## Instalação
+Para começar a trabalhar com a aplicação, você precisará clonar os repositórios do frontend e do backend.
+- **Frontend**: `git clone https://github.com/NikollasBeltrao/corelab-challenge-web-app-php.git`
+- **Backend**: `git clone https://github.com/NikollasBeltrao/corelab-api-challenge-php.git`
 
-### Technical Requirements:
-1. The backend API should be built in PHP Laravel framework and use a database of your choice (e.g., MySQL, PostgreSQL, etc.).
-2. The frontend should be built in React and use modern web development tools and best practices.
-3. The application should be responsive and visually appealing.
-
-### Deliverables:
-1. A link to a GitHub repository containing the complete source code for the project.
-2. A written description of how to set up and run the application locally.
-
-### Evaluation Criteria:
-1. Code Quality
-2. Code Format
-3. Code Performance
-4. Frontend Design
-5. If your code is Easily Readable
-6. Mobile First approach
-7. Code Responsibility
-8. Features Work
-9. Responsiveness
-10. Does the application meet the functionality requirements listed above?
-11. Is the code well-organized, easy to read, and well-documented?
-12. Are modern web development tools and best practices used?
-13. Is the application visually appealing and responsive?
 
 ### Backend
-Repository: 
-1. PHP: ^7.4
-2. Laravel: ^8.0
-3. Database: Choose your own, you can even use PostgreSQL.
+- No terminal navegue até o diretório do projeto `cd corelab-api-challenge-php`.
+- Altere o arquivo `.env.example` para `.env`.
+- No arquivo `.env`, altere as variáveis do banco para:
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=corelab_challenge
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+#### Caso use docker
+
+- Crie o container com `docker compose build` ou usando o *Makefile* `make build`.
+- Inicie o container com `docker compose up` ou usando o *Makefile* `make up`.
+- Instale as dependências  do composer com `docker compose exec api composer install` ou usando o *Makefile* `make composer-install`.
+- Crie as tabelas no banco com `docker compose exec api php artisan migrate` ou  usando o *Makefile* `make migrate`.
+- Gere uma `APP_KEY` no laravel com `docker compose exec api php artisan key:generate`  ou  usando o *Makefile* `make key-generate`.
+- Teste o phpMyAdmin abrindo [http://localhost:8001/](http://localhost:8001/) no navegador.
+- Teste o projeto abrindo [http://localhost:8000/](http://localhost:8000/) no navegador.
+
+#### Caso não use docker
+- Instale as dependências  do composer com `composer install`.
+- Inicie o projeto com `php artisan serve`.
+- Crie as tabelas no banco com `php artisan migrate`.
+- Gere uma `APP_KEY` no laravel com `php artisan key:generate`.
+- Teste o projeto abrindo [http://localhost:8000/](http://localhost:8000/) no navegador.
+
+**OBS: Dependendo da versão do docker o comando pode ser `docker-compose`.**
 
 ### Frontend
-Repository: 
-1. Node: ^16.15.0
-2. NPM: ^8.5.5
-3. Framework: React TS
-4. Sass or other preprocessor
+- No terminal navegue até o diretório do projeto `cd corelab-challenge-web-app-php`.
+- Altere o arquivo `.env.development.exemple` para `.env.development` e confira na variável `REACT_APP_API_URL` se o caminho e a porta para a API estão corretos.
 
-### Want to impress us even more?
-If you feel comfortable and want to impress us even more, you can do the following:
+#### Caso use docker
+- Crie o container com `docker compose build` ou usando o *Makefile* `make build`.
+- Inicie o container com `docker compose up` ou usando o *Makefile* `make up`.
 
-1. Work on correct types and interfaces
-2. Work on eslint rules
-3. Work prettier config
-4. Work on docker containers
-5. Work on tests
-6. Work on CI/CD
-
-### What to do when you finish?
-
-Create a file PULL_REQUEST.md where you will describe what you did and how in as much detail as possible. Feel free to add videos for better explanation.
-
-Create a new pull request using the same branch name for Backend and Frontend
-
-Send us the pull requests and that's all!
-
-#### Good luck! The sky is the limit 🚀
+#### Caso não use docker
+- Instale as dependencias do node com `npm install`.
+- Inicie o projeto com `npm start`.
+- Acesse o projeto abrindo [http://localhost:3000/](http://localhost:3000/) no navegador.

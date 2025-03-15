@@ -1,0 +1,46 @@
+@use "variables.module.scss";
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  margin-bottom: 48px;
+  background-color: variables.$secondary;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 14px;
+    margin-left: 25px;
+    color: variables.$subtitle;
+  }
+}
+
+.notesList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.favorite, .other{
+  margin-top: 64px;
+  width: 440px;
+}
+
+.queryResult {
+  font-size: 14px;
+  color: #333333;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  .favorite, .other {
+    width: 100% !important;
+  }
+  .notesList {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,47 @@
+@use "../abstracts/variables";
+
+// Utilitários de texto
+
+// Alinhamento
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+// Decoração
+.text-decoration-none { text-decoration: none !important; }
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-line-through { text-decoration: line-through !important; }
+
+// Transform
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Peso da fonte
+.font-light { font-weight: variables.$font-weight-light !important; }
+.font-normal { font-weight: variables.$font-weight-normal !important; }
+.font-medium { font-weight: variables.$font-weight-medium !important; }
+.font-semibold { font-weight: variables.$font-weight-semibold !important; }
+.font-bold { font-weight: variables.$font-weight-bold !important; }
+
+// Tamanho do texto
+.text-xs { font-size: variables.$font-size-xs !important; }
+.text-sm { font-size: variables.$font-size-sm !important; }
+.text-base { font-size: variables.$font-size-base !important; }
+.text-md { font-size: variables.$font-size-md !important; }
+.text-lg { font-size: variables.$font-size-lg !important; }
+.text-xl { font-size: variables.$font-size-xl !important; }
+.text-2xl { font-size: variables.$font-size-2xl !important; }
+.text-3xl { font-size: variables.$font-size-3xl !important; }
+.text-4xl { font-size: variables.$font-size-4xl !important; }
+
+// Truncar texto
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Quebra de texto
+.text-nowrap { white-space: nowrap !important; }
+.text-break { word-wrap: break-word !important; word-break: break-word !important; }

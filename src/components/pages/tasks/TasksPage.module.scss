@@ -1,0 +1,64 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+  padding: $spacing-md 0;
+}
+
+.filters {
+  margin-bottom: $spacing-lg;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+// Skeleton styles
+.skeletonContainer {
+  width: 100%;
+  padding: $spacing-md 0;
+}
+
+.skeletonHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.skeletonTitle {
+  height: 36px;
+  width: 200px;
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-md;
+}
+
+.skeletonButton {
+  height: 40px;
+  width: 120px;
+  background-color: var(--background-secondary);
+  border-radius: $border-radius-md;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.searchingIndicator {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+  font-style: italic;
+}

@@ -1,0 +1,196 @@
+@use 'sass:color';
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.container {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: $font-weight-bold;
+  margin: 0;
+}
+
+.createButton {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-md;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: color.adjust($color-primary, $lightness: -10%);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @include respond-above(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gridItem {
+  height: 100%;
+}
+
+.emptyState {
+  margin: $spacing-xl 0;
+  text-align: center;
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: rgba($color-black, 0.6);
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.emptyIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $spacing-md;
+  color: rgba($color-black, 0.3);
+}
+
+.createEmptyButton {
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-lg;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: color.adjust($color-primary, $lightness: -10%);
+  }
+}
+
+// Estilos para Modal de Exclusão
+.deleteConfirmation {
+  padding: $spacing-md;
+  
+  h2 {
+    margin-top: 0;
+    margin-bottom: $spacing-sm;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.deleteActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-md;
+}
+
+.cancelButton {
+  padding: $spacing-sm $spacing-lg;
+  background: none;
+  border: 1px solid rgba($color-black, 0.2);
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba($color-black, 0.05);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.deleteButton {
+  padding: $spacing-sm $spacing-lg;
+  background-color: $color-red;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  
+  &:hover:not(:disabled) {
+    background-color: color.adjust($color-red, $lightness: -10%);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  color: var(--text-secondary);
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.gridContent.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.overlayLoading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

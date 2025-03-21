@@ -1,0 +1,151 @@
+@use "../abstracts/variables";
+
+// Reset box model
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  // Document
+  html {
+    font-family: variables.$font-family-base;
+    line-height: variables.$line-height-base;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(variables.$color-black, 0);
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  // Body
+  body {
+    margin: 0;
+    font-family: variables.$font-family-base;
+    font-size: variables.$font-size-base;
+    font-weight: variables.$font-weight-normal;
+    line-height: variables.$line-height-base;
+    color: var(--text-primary);
+    background-color: var(--background);
+    min-height: 100%;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  // Typography
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: variables.$spacing-md;
+    font-family: variables.$font-family-heading;
+    font-weight: variables.$font-weight-bold;
+    line-height: variables.$line-height-tight;
+    color: var(--text-primary);
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: variables.$spacing-md;
+  }
+  
+  ol, ul {
+    padding-left: variables.$spacing-lg;
+    margin-top: 0;
+    margin-bottom: variables.$spacing-md;
+  }
+  
+  ol ol, ul ul, ol ul, ul ol {
+    margin-bottom: 0;
+  }
+  
+  // Links
+  a {
+    color: variables.$color-primary;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color variables.$transition-fast;
+  
+    &:hover {
+      color: variables.$color-primary-dark;
+      text-decoration: underline;
+    }
+  }
+  
+  // Images and media
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  // Forms
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: variables.$line-height-base;
+    margin: 0;
+  }
+  
+  button,
+  input {
+    overflow: visible;
+  }
+  
+  button,
+  select {
+    text-transform: none;
+  }
+  
+  button:focus,
+  [type="button"]:focus,
+  [type="reset"]:focus,
+  [type="submit"]:focus {
+    outline: thin dotted;
+  }
+  
+  fieldset {
+    padding: variables.$spacing-sm variables.$spacing-md variables.$spacing-md;
+    border: variables.$border-width-thin solid var(--border);
+    border-radius: variables.$border-radius-md;
+    margin: 0 0 variables.$spacing-md 0;
+  }
+  
+  // Tables
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: variables.$spacing-md;
+    color: var(--text-primary);
+  }
+  
+  caption {
+    padding-top: variables.$spacing-md;
+    padding-bottom: variables.$spacing-md;
+    color: var(--text-secondary);
+    text-align: left;
+    caption-side: bottom;
+  }
+  
+  th {
+    text-align: inherit;
+  }
+  
+  // Remove animations for people who prefer less motion
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
